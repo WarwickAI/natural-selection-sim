@@ -1,6 +1,6 @@
 import json
 from os import walk, path
-from nss import Simulation, Entity, add_food, create_moids
+from nss import Simulation, Entity, add_food, create_cells
 
 def run_test(name, test):
     simulation_settings = test['simulation_settings']
@@ -10,7 +10,7 @@ def run_test(name, test):
 
     simulation = Simulation(**simulation_settings)
     add_food(100)
-    create_moids(5)
+    create_cells(5)
 
     for i in range(len(entities_cycles)):
         simulation.do_cycles(1, False)

@@ -1,6 +1,6 @@
 import json
 import os
-from nss import Simulation, Entity, add_food, create_moids
+from nss import Simulation, Entity, add_food, create_cells
 
 def generate_test_cli():
     name = input('Please enter the test name: ')
@@ -14,7 +14,7 @@ def generate_test_cli():
     simulation = Simulation(**simulation_settings)
 
     add_food(100)
-    create_moids(5)
+    create_cells(5)
 
     for i in range(200):
         simulation.do_cycles(1, False)

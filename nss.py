@@ -35,26 +35,26 @@ class Simulation:
 
                 input()
 
-    def display_moids_info(self):
+    def display_cells_info(self):
         total_sense_distance = 0
-        num_alive_moids = 0
+        num_alive_cells = 0
 
         for entity in Entity.entities:
-            if type(entity) is Moid:
+            if type(entity) is Cell:
                 if entity.is_active:
                     total_sense_distance += entity.sense_distance
-                    num_alive_moids += 1
+                    num_alive_cells += 1
 
                     print(entity.display_info())
 
-        avg_sense_distance = total_sense_distance / num_alive_moids
+        avg_sense_distance = total_sense_distance / num_alive_cells
 
         print()
-        print(f"{Color.CYAN}Displaying Moid information:{Color.RESET}")
+        print(f"{Color.CYAN}Displaying Cell information:{Color.RESET}")
         print()
 
         print("There are currently " + Color.CYAN +
-              str(num_alive_moids) + Color.RESET + " living Moids")
+              str(num_alive_cells) + Color.RESET + " living Cells")
         print("The average sense distance is " + Color.CYAN +
               str(avg_sense_distance) + Color.RESET)
 
@@ -158,7 +158,7 @@ class Food(Entity):
         return Color.GREEN + " o"
 
 
-class Moid(Entity):
+class Cell(Entity):
     def __init__(self, generation, x, y, energy, sense_distance):
         super().__init__(x, y)
 
@@ -175,7 +175,7 @@ class Moid(Entity):
         return Color.RED + " @"
 
     def display_info(self):
-        info = ("Moid ID: " + str(self.id))
+        info = ("Cell ID: " + str(self.id))
         info += (" | Energy: " + str(self.energy))
         info += (" | XY: " + "(" + str(self.x) + ", " + str(self.y) + ")")
         info += (" | Sense Distance: " + str(self.sense_distance))
@@ -234,7 +234,7 @@ class Moid(Entity):
             spawn_x = self.x - 1
             spawn_y = self.y - 1
 
-        new_moid = Moid(self.generation + 1, spawn_x,
+        new_cell = Cell(self.generation + 1, spawn_x,
                         spawn_y, 50, self.sense_distance)
         self.energy -= 50
 
@@ -247,41 +247,41 @@ def add_food(num_food, verbose=False):
     if verbose:
         print("\nAdding " + str(num_food) + " food")
 
-def create_moids(num_moids, verbose=False):
-    for i in range(1, num_moids + 1):
+def create_cells(num_cells, verbose=False):
+    for i in range(1, num_cells + 1):
         x, y = random.randint(1, 20), random.randint(1, 20)
-        Moid(0, x, y, 30, 3)
+        Cell(0, x, y, 30, 3)
 
     if verbose:
-        print("Adding " + str(num_moids) + " moids")
+        print("Adding " + str(num_cells) + " cells")
 
 
 if __name__ == '__main__':
     simulation = Simulation(20, 20, seed="WAI")
     add_food(100)
-    create_moids(5)
+    create_cells(5)
 
     # Begin menu display
     exit = False
     while not exit:
         print("\n" + Color.BLUE + "▄" * 50 + "\n" + Color.RESET)
 
-        print(f"{Color.CYAN}Moid Natural Selection Simulation{Color.RESET}\n")
+        print(f"{Color.CYAN}Cell Natural Selection Simulation{Color.RESET}\n")
 
-        print("1) Add a Moid")
+        print("1) Add a Cell")
         print("2) Add Food")
-        print("3) See Moid Info")
+        print("3) See Cell Info")
         print("4) View Map")
         print("x) Begin Evolution Cycle")
         print("\n" + Color.BLUE + "▀" * 50 + "\n" + Color.RESET)
 
         val = input("Press a key: ")
         if val == "1":
-            create_moids(1, verbose=True)
+            create_cells(1, verbose=True)
         elif val == "2":
             add_food(10, verbose=True)
         elif val == "3":
-            simulation.display_moids_info()
+            simulation.display_cells_info()
         elif val == "4":
             simulation.display()
         elif val == "x":
@@ -296,19 +296,19 @@ if __name__ == '__main__':
 
 # TO DO
 
-# Make moid to path to nearest food when food detected
+# Make cell to path to nearest food when food detected
 # Make offspring mutate their sense distance up or down on birth
 # Test and hopefully observe population sense distance change over time
 #
 
 
 # DONE
-# add a new moid attribute with states 0, 1, 2 (die, survive, reproduce)
+# add a new cell attribute with states 0, 1, 2 (die, survive, reproduce)
 # upon beginning a cycle, begin random walk
 # create a cycle routine that controls the cycles on key press
-# add check to ensure moid doesn't leave boundaries
+# add check to ensure cell doesn't leave boundaries
 # Fix food map display
 # Change cycle routine to step on key press
 # each tick, check current location against the food map
-# if there is a match, call a function that deletes food from list and increases energy of moid, and changes survival state of moid
+# if there is a match, call a function that deletes food from list and increases energy of cell, and changes survival state of cell
 # Create pathing algorithm
