@@ -1,0 +1,15 @@
+# ex 4
+    def display(self):
+        clear_output() # clear the display first before we print anything
+        map_text = "" # create an empty string - this is what we need to add our map text
+
+        # add to map_text to build up a picture of our map
+        for y in range(1, 21):
+            map_text += "\n"
+            for x in range(1, 21):
+                if self.x == x and self.y == y:
+                    map_text += "0"
+                else:
+                    map_text += " _"
+
+        print(map_text + "\n")
