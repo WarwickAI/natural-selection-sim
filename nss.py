@@ -14,6 +14,8 @@ class Color:
 
 
 class Simulation:
+    max_x = 20
+    max_y = 20
 
     def __init__(self, max_x, max_y, seed):
         self.seed = seed
@@ -187,7 +189,7 @@ class Cell(Entity):
     def move_random(self):
         dx, dy = random.choice([(0, 1), (0, -1), (1, 0), (-1, 0)])
 
-        while not (0 < self.x + dx <= 20 and 0 < self.y + dy <= 20):
+        while not (0 < self.x + dx <= Simulation.max_x and 0 < self.y + dy <= Simulation.max_y):
             dx, dy = random.choice([(0, 1), (0, -1), (1, 0), (-1, 0)])
 
         self.translate_by(dx, dy)
@@ -224,10 +226,10 @@ class Cell(Entity):
             self.sense_distance += change
 
     def reproduce(self):
-        if self.y < 50:
+        if self.y < Simulation.max_y:
             spawn_y = self.y + 1
             spawn_x = self.x
-        elif self.x < 50:
+        elif self.x < Simulation.max_x:
             spawn_x = self.x + 1
             spawn_y = self.y
         else:
@@ -241,7 +243,7 @@ class Cell(Entity):
 
 def add_food(num_food, verbose=False):
     for i in range(1, num_food + 1):
-        x, y = random.randint(1, 20), random.randint(1, 20)
+        x, y = random.randint(1, Simulation.max_x), random.randint(1, Simulation.max_y)
         Food(x, y)
 
     if verbose:
@@ -249,7 +251,7 @@ def add_food(num_food, verbose=False):
 
 def create_cells(num_cells, verbose=False):
     for i in range(1, num_cells + 1):
-        x, y = random.randint(1, 20), random.randint(1, 20)
+        x, y = random.randint(1, Simulation.max_x), random.randint(1, Simulation.max_y)
         Cell(0, x, y, 30, 3)
 
     if verbose:
