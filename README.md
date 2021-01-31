@@ -7,8 +7,7 @@ Monday January 18th @ 7pm
 Monday January 25th @ 7pm
 ### Lesson 2 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/WarwickAI/natural-selection-sim/blob/main/Lesson2.ipynb)
 
-### Lesson 3 <!-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/WarwickAI/natural-selection-sim/blob/main/Lesson3.ipynb) -->
-Available Monday February 1st @ 7pm 
+### Lesson 3 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/WarwickAI/natural-selection-sim/blob/main/Lesson3.ipynb) 
 
 ### Lesson 4 <!-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/WarwickAI/natural-selection-sim/blob/main/Lesson4.ipynb)  -->
 Available Monday February 8th @ 7pm 
