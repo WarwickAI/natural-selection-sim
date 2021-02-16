@@ -16,7 +16,7 @@ Monday February 8th @ 7pm
 
 
 ### Lesson 5
-Available Monday February 16th @ 5pm 
+Available Tuesday February 16th @ 5pm 
 
 ### Lesson 6 
 Available Monday February 22nd @ 7pm
