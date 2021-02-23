@@ -17,5 +17,5 @@ Monday February 8th @ 7pm
 ### Lesson 5 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/WarwickAI/natural-selection-sim/blob/main/Lesson5.ipynb) 
 Tuesday February 16th @ 5pm 
 
-### Lesson 6 
+### Lesson 6 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/WarwickAI/natural-selection-sim/blob/main/Lesson6.ipynb) 
 Available Monday February 22nd @ 7pm
